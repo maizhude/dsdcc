@@ -1347,6 +1347,10 @@ protected:
   TracedValue<SequenceNumber32> m_ecnEchoSeq {0};      //!< Sequence number of the last received ECN Echo
   TracedValue<SequenceNumber32> m_ecnCESeq   {0};      //!< Sequence number of the last received Congestion Experienced
   TracedValue<SequenceNumber32> m_ecnCWRSeq  {0};      //!< Sequence number of the last sent CWR
+
+
+  // To record the amount of data sent.
+  uint64_t m_sendBytes; //!< data sent bytes;
 };
 
 /**

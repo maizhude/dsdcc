@@ -1,0 +1,7 @@
+/build
+/incast
+_pycache_/
+.data
+.dat
+.txt
+.log

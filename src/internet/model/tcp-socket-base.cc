@@ -849,6 +849,13 @@ TcpSocketBase::Send (Ptr<Packet> p, uint32_t flags)
                                                             this, m_connected);
             }
         }
+
+      if(m_tcb->m_flowMode == TcpSocketState::Mouse){
+        m_sendBytes += p->GetSize();
+        if(m_sendBytes > 5 * 1024 * 1024){
+          m_tcb->m_flowMode = TcpSocketState::Elephant;
+        }
+      }
       return p->GetSize ();
     }
   else

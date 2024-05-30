@@ -136,6 +136,17 @@ public:
       DctcpEcn,    //!< ECN functionality as described in RFC 8257. Note: this mode is specific to DCTCP.
     } EcnMode_t;
 
+  
+  /**
+   * \brief Flow Modes
+   */
+  typedef enum
+    {
+      Elephant,   //!< To tag as an elephant flow.
+      Mouse,      //!< To tag as an mouse flow.
+    } FlowMode_t;
+
+
    /**
    * \brief Definition of the Ecn state machine
    *
@@ -206,6 +217,8 @@ public:
   UseEcn_t               m_useEcn {Off};         //!< Socket ECN capability
 
   EcnCodePoint_t         m_ectCodePoint {Ect0};  //!< ECT code point to use
+
+  FlowMode_t             m_flowMode {Mouse};
 
   uint32_t               m_lastAckedSackedBytes {0}; //!< The number of bytes acked and sacked as indicated by the current ACK received. This is similar to acked_sacked variable in Linux
 
